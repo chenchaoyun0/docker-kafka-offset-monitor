@@ -4,7 +4,9 @@ export KAFKA_BROKERS=$KAFKA_BROKERS
 export ZK_HOSTS=$ZK_HOSTS
 export REFRESH_SECENDS=$REFRESH_SECENDS
 export RETAIN_DAYS=$RETAIN_DAYS
-java -Xms128M -Xmx256M -Xss1024K -XX:PermSize=100m -XX:MaxPermSize=512m \
+java -Xms800m -Xmx2048m -Xmn1024m -XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection \
+     -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSParallelRemarkEnabled -XX:+CMSClassUnloadingEnabled \
+     -XX:SurvivorRatio=8 -XX:+DisableExplicitGC -Xss1024K -XX:PermSize=256m -XX:MaxPermSize=1024m \
      -cp kafka-offset-monitor-assembly.jar \
      com.quantifind.kafka.offsetapp.OffsetGetterWeb \
      --offsetStorage kafka \
