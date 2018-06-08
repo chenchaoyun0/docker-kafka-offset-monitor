@@ -16,7 +16,7 @@ java -Xms800m -Xmx2048m -Xmn1024m -XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFu
      --port 8086 \
      --refresh $REFRESH_SECENDS.seconds \
      --retain $RETAIN_DAYS.days \
-     --dbName offsetapp_kafka >> ./logs/system_out.log 2>&1 &
+     --dbName ./db/offsetapp_kafka >> ./logs/system_out.log 2>&1 &
 echo $!> ./.pid
 echo "================kafka 地址为：$KAFKA_BROKERS"
 echo "================zookeeper 地址为：$ZK_HOSTS"
