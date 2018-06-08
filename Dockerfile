@@ -10,4 +10,4 @@ ADD kafka-offset-monitor/*  /u01/app/kafka-offset-monitor/
 #容器对外暴露8080端口
 EXPOSE 8086
 #CMD 外部docker run 可替代里面参数
-CMD ["sh","-c","java -version;cd /u01/app/kafka-offset-monitor/;touch logs/system_out.log;sh start.sh;tail -100f logs/system_out.log"]
+CMD ["sh","-c","java -version;cd /u01/app/kafka-offset-monitor/;touch logs/system_out.log;cat start.sh;sh start.sh;tail -100f logs/system_out.log"]
